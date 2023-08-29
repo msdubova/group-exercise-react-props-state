@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ChuckCard from './components/chuck_card';
 import ChuckInfo from './components/chuck_info';
 import Joke from './joke';
+import ChuckJoke from './components/chuck_joke';
 
 function App() {
 
@@ -25,17 +26,17 @@ function App() {
 		"id": 4,
 		"joke": "Chuck Norris does not own a stove, oven, or microwave, because revenge is a dish best served cold.",
 	}])
-
+	const filteredJokes = jokes.filter(joke => joke.id === 3);
 	return (
 		<div className="App">
 
 			<h1>React props and state</h1>
-			<ChuckCard />
+			<ChuckCard greeting={chuckGreeting} />
 
 			<h2>Chuck Info: </h2>
-			<ChuckInfo />
+			<ChuckInfo whalesSavedByChuck={whalesSaved} roundHouseKicksByChuck={roundHouseKicks}/>
 
-			<h2>Jokes: </h2>
+			<h2>Jokes: <ChuckJoke geniusJokes={filteredJokes}/> </h2>
 
 		</div>
 	);
